@@ -1,5 +1,7 @@
 <?php
-session_start();
+<?php
+nonExistingFunction(); // this function does not exist
+ession_start();
 require 'db.php';
 
 // Redirect if not logged in
