@@ -1,0 +1,29 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-app:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Install Dependencies (if you have Composer)
+        run: |
+          if [ -f composer.json ]; then composer install; fi
+
+      - name: Run Tests (optional)
+        run: |
+          if [ -d tests ]; then vendor/bin/phpunit; else echo "No tests"; fi
+          Added CI workflow
