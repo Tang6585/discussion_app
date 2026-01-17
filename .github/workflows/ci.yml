@@ -26,4 +26,4 @@ jobs:
       - name: Run Tests (optional)
         run: |
           if [ -d tests ]; then vendor/bin/phpunit; else echo "No tests"; fi
-          Added CI workflow
+      
